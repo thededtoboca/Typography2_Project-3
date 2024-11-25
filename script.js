@@ -28,12 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const team = button.getAttribute('data-team');
             const teamColor = button.getAttribute('data-color');
 
-            hideAllFrames(); // Hide all frames first
+            hideAllFrames(); 
 
-            // Show all frames belonging to the selected team
             const selectedFrames = document.querySelectorAll(`.frame[data-team="${team}"]`);
             selectedFrames.forEach(frame => {
-                frame.style.display = 'block'; // Show each frame with matching team
+                frame.style.display = 'block'; 
             });
 
             resetButtons();
@@ -48,5 +47,5 @@ document.addEventListener('DOMContentLoaded', function () {
         resetButtons();
     });
 
-    showAllFrames(); // Initially show all frames
+    showAllFrames(); 
 });
