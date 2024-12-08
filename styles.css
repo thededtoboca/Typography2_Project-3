@@ -1,0 +1,236 @@
+:root {
+  --eagles-orange: #FF6B00;
+  --eagles-navy: #0A0F1C;
+}
+
+@font-face {
+  font-family: 'Hanwha Eagles';
+  src: url('fonts/HanwhaEagles.woff2') format('truetype');
+}
+
+body {
+  background-color: var(--eagles-navy);
+  margin: 0;
+  padding: 0;
+  font-family: 'Hanwha Eagles', sans-serif;
+}
+
+header {
+  background-color: var(--eagles-navy);
+  padding: 24px 0;
+  text-align: center;
+}
+
+header .logo {
+  height: 36px;
+  width: auto;
+  margin-bottom: 12px;
+}
+
+header h1 {
+  color: white;
+  font-size: 32px;
+  margin: 0;
+}
+
+#games-container {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(66.67px, 1fr));
+  grid-auto-flow: row;
+  gap: 0;
+  height: 400px;
+  margin: 0 auto;
+  grid-auto-rows: minmax(min-content, max-content);
+}
+
+.game-card {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  border: 0.1px solid #E0E0E0;
+  box-sizing: border-box;
+}
+
+.win-card {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.win-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
+
+.win-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--scoreboard-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.win-card .game-info {
+  position: relative;
+  z-index: 2;
+}
+
+.win-card:hover::after {
+  opacity: 1;
+}
+.win-card:hover {
+  background-image: none;
+}
+
+.opponent-name {
+  color: white;
+}
+
+.loss-card .opponent-name {
+  color: var(--eagles-navy);
+}
+
+.loss-card {
+  grid-column: span 1;
+  aspect-ratio: 1 / 1;
+  background-color: var(--eagles-orange);
+  position: relative;
+}
+
+.loss-card .game-info {
+  font-size: 0.8em; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loss-card .game-date {
+  font-size: 18px; 
+}
+
+.loss-card .score {
+  font-size: 60px;
+  color: var(--eagles-navy);
+  align-self: flex-end;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.loss-card .score .opponent {
+  color: white;
+}
+
+.loss-card .team-logo {
+  height: 48px; 
+  width: auto; 
+}
+
+.loss-card .vs-team {
+  gap: 4px; 
+}
+
+.canceled-card {
+  grid-column: span 1;
+  aspect-ratio: 1 / 1;
+  background-color: var(--eagles-navy);
+}
+
+.canceled-card .game-info {
+  font-size: 0.8em; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.canceled-card .score {
+  font-size: 48px;
+  color: var(--eagles-orange);
+  align-self: flex-end;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.canceled-card .team-logo {
+  height: 48px; 
+  width: auto; 
+}
+
+.canceled-card .game-date{
+  font-size: 18px;
+}
+
+.win-card:hover .game-info {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.win-card .game-info {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.game-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.game-date {
+  font-size: 24px;
+  color: white;
+}
+
+.vs-team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.vs-text {
+  color: white;
+}
+
+.team-logo {
+  height: 72px;
+  width: auto;
+}
+
+.score {
+  font-size: 100px;
+  color: var(--eagles-orange);
+  font-weight: bold;
+}
+
+.score .opponent {
+  color: white;
+}
