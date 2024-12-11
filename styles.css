@@ -226,27 +226,3 @@ header h2 {
 
 .score {
   font-size: 20px;
-  color: var(--eagles-orange);
-  font-weight: bold;
-}
-
-.score .opponent {
-  color: white;
-}
-
-.opponent-name {
-  color: white;
-  font-size: 6px;
-}
-
-.draw-card .opponent-name,
-.draw-card .game-date,
-.draw-card .vs-text,
-.draw-card .score,
-.draw-card .score .opponent {
-  color: var(--eagles-navy);
-}
-
-.draw-card .vs-text {
-  font-size: 8px;
-}
